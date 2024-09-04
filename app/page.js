@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import {firestore} from '@/firebase'
 import { Box, Modal, Button, Typography, Stack, TextField } from "@mui/material";
-import { query, getDocs, getDoc, setDoc, deleteDoc, collection } from "firebase/firestore";
+import { query, getDocs, doc,  getDoc, setDoc, deleteDoc, collection } from "firebase/firestore";
 
 export default function Home() {
   const [inventory, setInventory ] = useState([])
@@ -51,7 +51,7 @@ export default function Home() {
         quantity: quantity + 1
       })
     } else {
-      await setDoc(docRef, {qauntity: 1})
+      await setDoc(docRef, {quantity: 1})
     }
     await updateInventory()
   }
